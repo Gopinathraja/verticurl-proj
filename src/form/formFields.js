@@ -1,4 +1,4 @@
-import React,{ useState} from 'react';
+import React,{ useState , useRef} from 'react';
 import './form.scss'
 import {addJobs,updateJobs} from '../crud-services/services';
 import DatePicker from "react-datepicker";
@@ -8,6 +8,8 @@ function Form(props) {
 
     const [ job,setJob ] = useState(props.fields);
     const [disabled,setDisabled] = useState(false);
+    const errorEle = useRef(null);
+
 
     const onBtnSubmit =()=>{
         const validation = baseValidationCheck();
@@ -39,7 +41,8 @@ function Form(props) {
           var error = false;
           Object.keys(job).forEach((obj) => {
             if((!job[obj] || (job[obj] === "selected" && obj ==="status")) && obj !== "options"){
-                error =`Please enter ${obj} value ${job[obj]} f`;
+                error =`Please enter ${obj} value`;
+                errorEle.current.innerHTML=error;
             }
         })
         return error;
@@ -57,7 +60,6 @@ function Form(props) {
               name="title"
               onChange={ (e) => updateData(e)}
             />
-            <div className="error"><span className={`error-msg-${1}`}></span></div>
           </div>
 
           <div className="form-group">
@@ -69,7 +71,6 @@ function Form(props) {
             <option value="Hide">Hide</option>
             <option value="Done">Done</option>
           </select>
-          <div className="error"><span className={`error-msg-${2}`}></span></div>
           </div>
 
            <div className="form-group">
@@ -84,8 +85,6 @@ function Form(props) {
               name="posted"
               onChange={ (e)=> updateData(e)}
             /> */}
-               
-               <div className="error"><span className={`error-msg-${3}`}></span></div>
           </div>
 
           <div className="form-group">
@@ -99,9 +98,9 @@ function Form(props) {
               onChange={ (e)=> updateData(e)}
               
             />
-             <div className="error"><span className={`error-msg-${4}`}></span></div>
+            
           </div>
-
+          <div className="error"><span ref={errorEle} className={`error-msg`}></span></div>
           <button className="btn btn-primary" onClick={()=>onBtnSubmit()} disabled= {disabled}>Submit</button>
         </form>
     </div>

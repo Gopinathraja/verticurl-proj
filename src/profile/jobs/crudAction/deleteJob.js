@@ -4,7 +4,8 @@ import {deleteJobs} from '../../../crud-services/services';
 
 function DeleteJob(props) {
   const deteleJob =()=>{
-    deleteJobs(props.actionData)
+    deleteJobs(props.actionData);
+    props.triggerChange()
   }
   return (
     <div className="DeleteJob">

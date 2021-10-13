@@ -13,14 +13,12 @@ export const getJobs = async () => {
     try {
         const response = await axios.get(url);
         const data = response.data;
-        console.log(data)
         return data
     } catch (err) {
         return false
     }
 };
 export const updateJobs = async (data) => {
-    console.log("data",data)
     const newUrl = `${url}/${data.id}`;
     try {
         await axios.put(newUrl, data);

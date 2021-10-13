@@ -38,8 +38,8 @@ function ListTable(props) {
           {options.map((name,ind) => (
            <li key={`${name}-${ind}`}> 
               {(name === "Edit") ? <EditJob action= { () => props.editJobs(job)}></EditJob> :
-              (name === "Delete") ? <DeleteJob actionData= {job.id}></DeleteJob> :
-              (name === "Hide") ?<HideJob actionData= {job}></HideJob>:null}
+              (name === "Delete") ? <DeleteJob actionData= {job.id} triggerChange ={ props.triggerChange()}></DeleteJob> :
+              (name === "Hide") ?<HideJob actionData= {job} triggerChange={props.triggerChange()}></HideJob>:null}
 
               {/* <button onClick={()=> {
               if(name === "Edit") { return props.editJobs(job) }else{ if(name === "Delete"){deleteJobs(job.id) }else{

@@ -3,23 +3,25 @@ import './form.scss'
 import {addJobs,updateJobs} from '../crud-services/services';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { useHistory } from "react-router-dom";
 
 function Form(props) {
-
     const [ job,setJob ] = useState(props.fields);
     const [disabled,setDisabled] = useState(false);
     const errorEle = useRef(null);
-
+    let history = useHistory();
 
     const onBtnSubmit =()=>{
         const validation = baseValidationCheck();
         if(validation){
             return null;
         }
-       
+        const applicants = job.applicants.split(",");
+        job.applicants = applicants;
         if(job.formType === "add"){
             delete job.formType;
             addJobs(job);
+            history.push('/jobs')
         }else{
             delete job.formType;
             updateJobs(job);
@@ -88,17 +90,17 @@ function Form(props) {
           </div>
 
           <div className="form-group">
-            <label> Applicants </label>
+            <label> Applicants
+              (comma seperated image urls) </label>
             <textarea
               required
               type="text"
               className="form-control textAreaField"
-              value={job.applicant}
+              value={job.applicants.toString()}
               name="applicants"
               onChange={ (e)=> updateData(e)}
               
             />
-            
           </div>
           <div className="error"><span ref={errorEle} className={`error-msg`}></span></div>
           <button className="btn btn-primary" onClick={()=>onBtnSubmit()} disabled= {disabled}>Submit</button>

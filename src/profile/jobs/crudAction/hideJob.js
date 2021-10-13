@@ -7,6 +7,7 @@ function HideJob(props) {
     let jobs =props.actionData;
     jobs.status = "Hide";
     updateJobs(jobs);
+    props.triggerChange()
   }
   return (
     <div className="hideJob">

@@ -1,0 +1,25 @@
+
+.react-datepicker-wrapper
+{
+    width: initial !important;
+    display: inline-block;
+}
+.form{
+    .form-group{
+        padding: 10px 0px 0px 0px;
+   
+    }
+    button.btn{
+        margin-top:10px;
+    }
+    .textAreaField{
+        vertical-align: top;
+    }
+    .error{
+        height:20px;
+    }
+    label{
+        min-width: 80px !important;
+        display: inline-block;
+    }
+}

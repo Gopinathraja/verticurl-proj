@@ -1,0 +1,64 @@
+
+@import "../../base/sass/variables";
+
+.dash{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: $align-center;
+    text-align: $align-center;
+    min-height: 1000px;
+    .menu{
+        width: $width-three;
+        background: #3e3ed5;
+        @media only screen and (max-width: 600px) {
+            width: $width-default;
+        }
+    }
+    .content{
+        flex:1 1;
+        padding: 15px 15px;
+        background: #e9f1f5;
+        @media only screen and (max-width: 600px) {
+            padding: 15px 5px;
+        }
+    }
+    & .sidemenu>ul{
+        list-style-type: none;
+        height: $width-two;
+        li{
+            height: 150px;
+            display: flex;
+            flex-direction: row;
+            align-items: $align-center;
+            justify-content: $align-center;
+            @media only screen and (max-width: 600px) {
+                height: 50px;
+            }
+        }
+        a{
+            text-decoration: none !important;
+            color: #b1aeae;
+            font-size: 23px;
+            font-weight: bold;
+        }
+    }
+}
+
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .dash{
+        .menu{
+            width: $width-default;
+        }
+    }
+
+}
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {}
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {}
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {}
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {}

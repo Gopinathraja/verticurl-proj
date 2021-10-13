@@ -1,0 +1,58 @@
+
+@import "../../../base/sass/variables";
+
+/* reusable property */
+%display-properties {
+    display: none;
+}
+  %background-properties {
+    background: $base-color;
+}
+
+  
+.itemTable table{
+    width: $width-default;
+    background: #fff;
+    thead{
+        @extend %background-properties;
+    }
+    
+    tr{
+        height: 70px;
+        &.hidden{
+            @extend %display-properties;
+        }
+        &:hover{
+            @extend %background-properties;
+        }
+    }
+
+    .td_options{
+        button{
+            background: none;
+            border:none;
+            color:black !important;
+            
+        }
+        ul{
+            @extend %display-properties;
+            @extend %background-properties;
+            position: absolute;
+            right: 23px;    
+
+            button:hover{
+                cursor: pointer;
+                color:black;
+            }
+        }
+        &:hover{
+            ul{
+                display:block; 
+            }
+        }
+        img{
+            height:15px;
+            width:15px;
+        }
+    }
+}

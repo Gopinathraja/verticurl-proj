@@ -24,17 +24,17 @@ export default function Dashboard() {
           </div>
           <div className="sidemenu">
             <ul>
-              <li onClick = { () => setTab(0) } className={tab ===0 ? "active" : ""  }>
-                <Link to="/">Home</Link>
+              <li className={tab ===0 ? "active" : ""  }>
+                <Link onClick = { () => setTab(0) } to="/">Home</Link>
               </li>
-              <li onClick = { () => setTab(1) } className={tab ===1 ? "active" : ""  }>
-                <Link to="/subDashboard">Dashboard</Link>
+              <li className={tab ===1 ? "active" : ""  }>
+                <Link onClick = { () => setTab(1) } to="/subDashboard">Dashboard</Link>
               </li>
-              <li onClick = { () => setTab(2) } className={tab ===2 ? "active" : ""  }>
-                <Link to="/jobs">Jobs</Link>
+              <li className={tab ===2 ? "active" : ""  }>
+                <Link onClick = { () => setTab(2) }to="/jobs">Jobs</Link>
               </li>
-              <li onClick = { () => setTab(3) } className={tab ===3 ? "active" : ""  }>
-                <Link  to="/docs">Docs</Link>
+              <li className={tab ===3 ? "active" : ""  }>
+                <Link onClick = { () => setTab(3) } to="/docs">Docs</Link>
               </li>
               </ul>  
           </div>

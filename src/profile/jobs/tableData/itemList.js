@@ -17,6 +17,9 @@ function ListTable(props) {
           <tr className={(data.status === "Hide")? "t-row hidden" : "t-row "}>
             {
             data && Object.keys(data).map(function(detail, id) {
+              if(id ===3){
+                return renderImgs(data[detail]);
+              }
               if(id !== 4 || data[detail] === "Options"){
                 const text = (Number(data[detail]) === data[detail] && id===2)? (new Date(data[detail])).toString() :  data[detail];
                 return <td key={id}>{ text }</td>;
@@ -53,6 +56,19 @@ function ListTable(props) {
           </ul>
           </td>
         )
+      }
+
+      const renderImgs = (detail)=>{
+        if(!detail) return null;
+        if(detail === "Applicants") return (<td key={`detail 3`}>{ detail }</td>);
+        const myArr = (typeof detail === 'string') ? detail.split(",") : detail;
+        const getapllicants = (myArr.length === 0) ? " " : imageList(myArr);
+        return (<td key={`detail 3`}>{getapllicants} <span> { myArr.length }</span></td>);
+      }
+      const imageList = (arr)=> {
+          return arr.map((url)=>{
+            return <img src={url} className="img-applicant" alt="" />
+          })
       }
   return (
     <div className="itemTable">

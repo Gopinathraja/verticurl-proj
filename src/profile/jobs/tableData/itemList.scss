@@ -38,7 +38,7 @@
             @extend %display-properties;
             @extend %background-properties;
             position: absolute;
-            right: 23px;    
+            right: 17px;    
 
             button:hover{
                 cursor: pointer;
@@ -53,6 +53,13 @@
         img{
             height:15px;
             width:15px;
+        }
+    }
+    td{
+        .img-applicant{
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
         }
     }
 }

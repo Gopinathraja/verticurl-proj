@@ -52,7 +52,7 @@ function JobsContainer(props) {
         {data && <ListTable list ={data} editJobs={editJobs} triggerChange={() =>triggerChange}></ListTable>}
       </MyContext.Provider>
 
-      {(fields && showpopup) && <ModalData modalIsOpen = {showpopup } ><Form fields = {{...fields,...{formType:formtype} }} triggerChange={triggerChange}></Form></ModalData>}
+      {(fields && showpopup) && <ModalData modalIsOpen = {showpopup } toggle ={toggle}><Form fields = {{...fields,...{formType:formtype} }} triggerChange={triggerChange}></Form></ModalData>}
     </div>
   );
 }
